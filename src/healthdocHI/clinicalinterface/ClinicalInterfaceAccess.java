@@ -3,7 +3,7 @@ package healthdocHI.clinicalinterface;
 import healthdocHI.clinicalinterface.humanInterfaceMessages.DataAlterations;
 import healthdocHI.clinicalinterface.humanInterfaceMessages.DataRequest;
 import healthdocHI.clinicalinterface.humanInterfaceMessages.RequestedData;
-import healthdocHI.clinicalinterface.humanInterfaceMessages.UserAuthentication;
+//import healthdocHI.clinicalinterface.humanInterfaceMessages.UserAuthentication;
 
 /**
  * Interface that the human interface will use to access the client side of the
