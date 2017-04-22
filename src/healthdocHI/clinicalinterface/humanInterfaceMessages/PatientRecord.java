@@ -30,6 +30,12 @@ import java.util.HashMap;
  *
  * visit.getDate() returns a Date object for the date of the visit.
  *
+ * Writing to a visit will use the RecordField's updateData() method. to update
+ * the newest visit's Blood Pressure (String newBloodPressure):
+ *
+ * VisitRecord latestVisit = patientRecord.getVisitRecord(patientRecord.size() - 1);
+ * latestVisit.get(VisitRecord.Field.BLOOD_PRESSURE).updateData(newBloodPressure);
+ *
  *
  */
 public class PatientRecord extends RequestedData {
