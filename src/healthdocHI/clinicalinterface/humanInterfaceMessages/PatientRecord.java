@@ -1,6 +1,7 @@
 package healthdocHI.clinicalinterface.humanInterfaceMessages;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -20,15 +21,42 @@ public class PatientRecord extends RequestedData {
    *
    */
   private HashMap<Field, RecordField> patientData;
-  private String patientID;
-  private String name;
-  private String dateOfBirth;
   private ArrayList<VisitRecord> visits;
+
+  public PatientRecord(String id, String name, String dateOfBirth){
+    patientData.put(Field.NAME, new RecordField("Name", name, true));
+    patientData.put(Field.ID, new RecordField("ID", id, false));
+    patientData.put(Field.DOB, new RecordField("DOB", dateOfBirth, false));
+    patientData.put(Field.MEDICATIONS, new RecordField("Medications", "", true));
+  }
+
+  /**
+   * Get one of the main fields for this record.
+   * @param field What field to get.
+   * @return RecordField object.
+   */
+  public RecordField getField(Field field){
+    return patientData.get(field);
+  }
 
   public int size(){
     return visits.size();
   }
 
+  /**
+   * Add a new visit to the visit list.
+   * @param newVisit New visit record object.
+   */
+  public void addVisit(VisitRecord newVisit){
+    visits.add(newVisit);
+  }
+
+  /**
+   * Get a visit record from the visit record list.
+   * @param visit
+   * @return
+   * @throws IndexOutOfBoundsException
+   */
   public VisitRecord getVisitRecord(int visit) throws IndexOutOfBoundsException{
     if(visit < visits.size()){
       return visits.get(visit);
