@@ -31,7 +31,7 @@ public class VisitRecord {
   /**
    * Get a field from the Visit.
    * @param field Enum corresponding to the field we want to get.
-   * @return Return size 3 array containing ["Label", "Text", "R/W"]
+   * @return Return VisitRecord object
    */
   public RecordField get(Field field){
     if(visitData.containsKey(field)){

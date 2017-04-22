@@ -6,6 +6,31 @@ import java.util.HashMap;
 
 /**
  * Created by jdt on 4/21/17.
+ * Accessing patient record:
+ *
+ * Getting the fields:
+ * This gets the patient's name for this record:
+ * RecordField nameField = patientRecord.get(PatientRecord.Field.NAME);
+ *
+ * Name label nameField.label() should return something like "Name: ".
+ * Patients name would be nameField.text(); To return the patients name.
+ *
+ * Getting the patient's name could be in one line:
+ * patientRecord.get(PatientRecord.Field.NAME).text(); Would return the name of
+ * the patient.
+ *
+ * Visits, should remain in the order that they were added. Most recent last
+ * accessed by index (maybe the order they appear in the dropdown.
+ * VisitRecord visit = patientRecord.getVisitRecord(patientRecord.size() - 1);
+ * gets the most recent Visit record.
+ *
+ * Visit records have fields the same way the patient records have them.
+ * visit.get(VisitRecord.Field.BLOOD_PRESSURE).text() returns the blood pressure
+ * entered for that visit.
+ *
+ * visit.getDate() returns a Date object for the date of the visit.
+ *
+ *
  */
 public class PatientRecord extends RequestedData {
   public enum Field{
