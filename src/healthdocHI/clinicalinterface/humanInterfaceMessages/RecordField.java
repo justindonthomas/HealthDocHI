@@ -50,13 +50,9 @@ public class RecordField {
    * record.
    * @param str Text to replace the old text field.
    */
-  public void updateData(String str){
-    if(writable){
+  public void updateData(String str) {
+    if (writable) {
       text = str;
     }
-  }
-
-  public RecordField makeDuplicate(){
-    return new RecordField(label, text, writable);
   }
 }
