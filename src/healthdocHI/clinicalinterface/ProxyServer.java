@@ -37,13 +37,28 @@ public class ProxyServer implements ClinicalInterfaceAccess{
    */
   public RequestedData sendDataRequest(DataRequest request){
     DataRequest.RequestType rType = request.getType();
+    simulatedDataRequest(rType);
     switch(rType){
       case PATIENT_LIST:
         return getListForDoctor(request.getKey());
       case PATIENT_RECORD:
-        //do stuff
+        return getPatientRecord(request.getKey());
+      default:
+        return null;
     }
-    return null;
+  }
+
+  /**
+   * Super realistic simulation of a data request to HealthDoc.
+   * @param rType Type of request.
+   */
+  private void simulatedDataRequest(DataRequest.RequestType rType){
+    System.out.println("Sending request for " + rType);
+    System.out.println("Packaging with session info.");
+    System.out.println("Encrypting.");
+    System.out.println("Sending to server.");
+    System.out.println("Awaiting response.");
+    System.out.println("Decrypting and building RequestedData structure.");
   }
 
   /**
