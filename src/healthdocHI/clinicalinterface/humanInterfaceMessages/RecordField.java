@@ -10,6 +10,17 @@ public class RecordField {
   private String text;
   private boolean writable;
 
+  public RecordField(String label, boolean writable){
+    this.label = label;
+    this.writable = writable;
+  }
+
+  public RecordField(String label, String text, boolean writable){
+    this.label = label;
+    this.text = text;
+    this.writable = writable;
+  }
+
   /**
    * Returns a copy (not a reference) of the label string.
    * @return Copy of the label string.
@@ -43,5 +54,9 @@ public class RecordField {
     if(writable){
       text = str;
     }
+  }
+
+  public RecordField makeDuplicate(){
+    return new RecordField(label, text, writable);
   }
 }
