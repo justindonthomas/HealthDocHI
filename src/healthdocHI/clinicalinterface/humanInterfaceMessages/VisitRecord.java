@@ -29,6 +29,21 @@ public class VisitRecord {
     }
     date = new GregorianCalendar();
   }
+
+  /**
+   * Visit with specified date
+   * @param year Year of visit
+   * @param month Month of visit
+   * @param day Day of visit.
+   */
+  public VisitRecord(int year, int month, int day){
+    visitData = new HashMap<>();
+    for (Field f: Field.values())
+    {
+      visitData.put(f, new RecordField(f.toString(), true));
+    }
+    date = new GregorianCalendar(year, month, day);
+  }
   
   /**
    * Get the date of the visit.
