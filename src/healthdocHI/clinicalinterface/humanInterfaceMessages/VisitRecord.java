@@ -1,6 +1,6 @@
 package healthdocHI.clinicalinterface.humanInterfaceMessages;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 /**
@@ -16,7 +16,7 @@ public class VisitRecord {
     STAFF;
   }
 
-  private Date date;
+  private GregorianCalendar date;
 
   private HashMap<Field, RecordField> visitData;
 
@@ -27,14 +27,14 @@ public class VisitRecord {
     {
       visitData.put(f, new RecordField(f.toString(), true));
     }
-    
+    date = new GregorianCalendar();
   }
   
   /**
    * Get the date of the visit.
    * @return Date object, the date of the visit.
    */
-  public Date getDate(){
+  public GregorianCalendar getDate(){
     return date;
   }
 
