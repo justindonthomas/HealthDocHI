@@ -119,8 +119,12 @@ public class ProxyServer implements ClinicalInterfaceAccess{
    * Make PatientRecords and populate "Database"
    */
   private void populatePatientRecords(){
+
+    //**********Patient 1 Record and visits**********************
     PatientRecord p1 = new PatientRecord(patientIDs.get(0),
       "A. One", "04/15/1981");
+
+    //***Visit One***
     VisitRecord vr = new VisitRecord();
     vr.put(VisitRecord.Field.BLOOD_PRESSURE, "120/80");
     vr.put(VisitRecord.Field.TEMPERATURE, "99.2");
@@ -128,17 +132,41 @@ public class ProxyServer implements ClinicalInterfaceAccess{
     vr.put(VisitRecord.Field.OTHER, "None");
     vr.put(VisitRecord.Field.STAFF, "P. Body");
     p1.addVisit(vr);
+
+    //***Visit Two
+    vr = new VisitRecord(1990, 02, 13);
+
+    vr.put(VisitRecord.Field.BLOOD_PRESSURE, "160/80");
+    vr.put(VisitRecord.Field.TEMPERATURE, "97.7");
+    vr.put(VisitRecord.Field.WEIGHT, "120");
+    vr.put(VisitRecord.Field.OTHER, "None");
+    vr.put(VisitRecord.Field.STAFF, "H. Jass");
+    p1.addVisit(vr);
     
     patientRecordDatabase.put(patientIDs.get(0), p1);
 
+    //********Patient Two
     PatientRecord p2 = new PatientRecord(patientIDs.get(1),
       "B. Two", "02/29/1977");
+
+    //*** Patient Two visit 1 ***
+    vr = new VisitRecord(2015, 05, 20);
+
+    vr.put(VisitRecord.Field.BLOOD_PRESSURE, "Wow");
+    vr.put(VisitRecord.Field.TEMPERATURE, "Holy Shit");
+    vr.put(VisitRecord.Field.WEIGHT, "10000");
+    vr.put(VisitRecord.Field.OTHER, "And How");
+    vr.put(VisitRecord.Field.STAFF, "Zaius");
+    p2.addVisit(vr);
+
     patientRecordDatabase.put(patientIDs.get(1), p2);
 
+    //**** Patient 3
     PatientRecord p3 = new PatientRecord(patientIDs.get(2),
       "C. Three", "04/22/2017");
     patientRecordDatabase.put(patientIDs.get(2), p3);
 
+    //*** Patient 4
     PatientRecord p4 = new PatientRecord(patientIDs.get(3),
       "D. Four", "12/31/1999");
     patientRecordDatabase.put(patientIDs.get(3), p4);
