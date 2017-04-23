@@ -39,7 +39,6 @@ public class PatientRecord extends RequestedData {
     DOB,
     MEDICATIONS;
   }
-
   /*
    * patient data is a hashmap of fields mapped to string 3-ples. Each 3-ple
    * contains a label, text, and read/write designation. If the
@@ -48,7 +47,11 @@ public class PatientRecord extends RequestedData {
   private HashMap<Field, RecordField> patientData;
   private ArrayList<VisitRecord> visits;
 
+  
   public PatientRecord(String id, String name, String dateOfBirth){
+    patientData = new HashMap<>();
+    visits = new ArrayList<>();
+    
     patientData.put(Field.NAME, new RecordField("Name", name, true));
     patientData.put(Field.ID, new RecordField("ID", id, false));
     patientData.put(Field.DOB, new RecordField("DOB", dateOfBirth, false));
@@ -75,7 +78,12 @@ public class PatientRecord extends RequestedData {
   public void addVisit(VisitRecord newVisit){
     visits.add(newVisit);
   }
-
+  
+  public int getVisitNumber()
+  {
+    return visits.size();
+  }
+  
   /**
    * Get a visit record from the visit record list.
    * @param visit

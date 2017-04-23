@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import healthdocHI.clinicalinterface.ClinicalInterfaceAccess;
+import healthdocHI.clinicalinterface.ProxyServer;
 import healthdocHI.clinicalinterface.humanInterfaceMessages.DataRequest;
+import healthdocHI.clinicalinterface.humanInterfaceMessages.PatientList;
 import healthdocHI.clinicalinterface.humanInterfaceMessages.RequestedData;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -12,6 +14,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitPane;
@@ -31,6 +35,9 @@ public class HealthDocController implements Initializable, ClinicalInterfaceAcce
   private MenuItem closeOption;
   
   @FXML
+  private ComboBox<String> patientIdComboBox;
+  
+  @FXML
   private Button calandarButton;
   @FXML
   private Button patientRecButton;
@@ -45,14 +52,15 @@ public class HealthDocController implements Initializable, ClinicalInterfaceAcce
   @FXML
   private Button notificationButton;
   
+  //Current fxml being displayed in lower window
   private Node currentNode;
-  
   
   @Override
   public void initialize(URL location, ResourceBundle resources)
   {
     greetingsLabel.setText("Greetings Dr. Roman, please choose an option above to continue.");
     currentNode = null;
+   
   }
   
   @Override
@@ -60,6 +68,12 @@ public class HealthDocController implements Initializable, ClinicalInterfaceAcce
   {
     // TODO Auto-generated method stub
     return null;
+  }
+  
+  @FXML
+  private void handlePatientIdSelect()
+  {
+    
   }
   
   @FXML
@@ -154,6 +168,8 @@ public class HealthDocController implements Initializable, ClinicalInterfaceAcce
     }
   }
   
+  //Changes the current node we are tracking when a different screen
+  //button is pressed
   private void changeCurrentView (Node newNode)
   {
     if (currentNode != null)

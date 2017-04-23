@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Point3D?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
@@ -44,10 +44,10 @@
                         <Label text="D.O.B." GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Label text="Patient ID" GridPane.rowIndex="1" />
                         <Label text="Entry to View:" GridPane.rowIndex="2" />
-                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ChoiceBox fx:id="NurseEntryToView" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="name" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <TextField fx:id="dob" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="patientIdComboBox" onAction="#handleIdSelect" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="patientEntryComboBox" onAction="#handlePatientEntrySelection" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -70,18 +70,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="temp" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label text="Temperature:" GridPane.rowIndex="3" />
                   <Label text="Weight" GridPane.rowIndex="4" />
                   <Label text="Entry:" GridPane.rowIndex="1" />
                   <Label text="Values / Notes:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Blood Pressure:" GridPane.rowIndex="2" />
                   <Label text="Other Vitals:" GridPane.rowIndex="5" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="bloodPres" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="weight" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="other" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextArea fx:id="medications" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <TextField fx:id="staff" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <Label text="Attending Staff:" GridPane.rowIndex="6" />
                   <Label text="Medications:" GridPane.rowIndex="8" />
                </children>
