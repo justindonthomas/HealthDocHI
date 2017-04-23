@@ -20,6 +20,16 @@ public class VisitRecord {
 
   private HashMap<Field, RecordField> visitData;
 
+  public VisitRecord()
+  {
+    visitData = new HashMap<>();
+    for (Field f: Field.values())
+    {
+      visitData.put(f, new RecordField(f.toString(), true));
+    }
+    
+  }
+  
   /**
    * Get the date of the visit.
    * @return Date object, the date of the visit.

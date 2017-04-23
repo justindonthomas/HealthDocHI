@@ -4,6 +4,7 @@ import healthdocHI.clinicalinterface.humanInterfaceMessages.DataRequest;
 import healthdocHI.clinicalinterface.humanInterfaceMessages.PatientList;
 import healthdocHI.clinicalinterface.humanInterfaceMessages.PatientRecord;
 import healthdocHI.clinicalinterface.humanInterfaceMessages.RequestedData;
+import healthdocHI.clinicalinterface.humanInterfaceMessages.VisitRecord;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -120,6 +121,14 @@ public class ProxyServer implements ClinicalInterfaceAccess{
   private void populatePatientRecords(){
     PatientRecord p1 = new PatientRecord(patientIDs.get(0),
       "A. One", "04/15/1981");
+    VisitRecord vr = new VisitRecord();
+    vr.put(VisitRecord.Field.BLOOD_PRESSURE, "120/80");
+    vr.put(VisitRecord.Field.TEMPERATURE, "99.2");
+    vr.put(VisitRecord.Field.WEIGHT, "150");
+    vr.put(VisitRecord.Field.OTHER, "None");
+    vr.put(VisitRecord.Field.STAFF, "P. Body");
+    p1.addVisit(vr);
+    
     patientRecordDatabase.put(patientIDs.get(0), p1);
 
     PatientRecord p2 = new PatientRecord(patientIDs.get(1),
