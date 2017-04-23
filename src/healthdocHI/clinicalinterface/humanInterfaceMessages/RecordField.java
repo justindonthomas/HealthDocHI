@@ -12,6 +12,7 @@ public class RecordField {
 
   public RecordField(String label, boolean writable){
     this.label = label;
+    this.text = "";
     this.writable = writable;
   }
 
